@@ -18,7 +18,7 @@ server.get('/contacts', (req, res, next) => {
     res.send('<h2>Liste des contacts</h2>');
 });
 
-server.get('/contacts:id', (req, res, next) => {
+server.get('/contacts/:id', (req, res, next) => {
     var id = parseInt(req.params.id);
 
     if(isNaN(id)){
