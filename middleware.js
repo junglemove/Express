@@ -25,7 +25,7 @@ server.get('/contacts/:id', (req, res, next) => {
         return next();
     }
 
-    res.send('<h2>Liste des contacts</h2>');
+    res.send('<h2>Liste des contacts'+`${req.params.id}`+'</h2>');
 });
 
 server.use((req, res, next) => {
