@@ -5,6 +5,11 @@ const express = require('express');
 
 const server = express();
 
+server.use((req, res, next) => {
+    console.log(`${req.method} ${req.url}`);
+    next();
+});
+
 server.get('/', (req, res, next) => {
     res.send('<h2>Acceuil</h2>');
 });
@@ -23,7 +28,7 @@ server.get('/contacts:id', (req, res, next) => {
     res.send('<h2>Liste des contacts</h2>');
 });
 
-server.all('/*',(req, res, next) => {
+server.use((req, res, next) => {
     res.statusCode = 404;
     res.send('<h2>Not found</h2>');
 });
