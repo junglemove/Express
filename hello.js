@@ -5,6 +5,10 @@ const express = require('express');
 
 const server = express();
 
+server.all('/', (req, res, next) =>{
+    res.send('<b>Hello</b>');
+});
+
 server.listen(8080, () => {
     console.log("Le serveur écoute sur le port 8080");
 });
