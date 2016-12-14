@@ -5,8 +5,9 @@ const express = require('express');
 
 const server = express();
 
-server.all(/\/a+/, (req, res, next) =>{
-    res.send('<b>Hello</b>');
+server.all("/contacts/:id", (req, res, next) =>{
+    res.send('<b>Hello</b>'+req.params.id);
+    //res.redirect('/');
 });
 
 server.listen(8080, () => {
